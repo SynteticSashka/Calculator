@@ -48,7 +48,12 @@ public class Service {
     }
 
     public static int convertLatinToArabic(String s){
-        int index = Arrays.binarySearch(Application.latinianNumbers, s);
+        int index = 0;
+        String a = "";
+        for (int i =0; i<Application.latinianNumbers.length; i++){
+            a = Application.latinianNumbers[i];
+            if (s.equals(a)) index = i;
+        }
         return Application.arabicNumbers[index];
     }
 
@@ -101,12 +106,6 @@ public class Service {
         String[] marks = {"+", "-", "*", "/"};
         Arrays.sort(marks);
         if (Arrays.binarySearch(marks, array[1]) < 0) throw new Exception("Некорректный ввод действия");
-
-
-
-
-
-
     }
 
     public static String convert(String[] array){
